@@ -68,7 +68,9 @@ export default function Footer({ darkMode, lang }: FooterProps) {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Lumen. {t("rights")}</p>
+        <p>
+          © {new Date().getFullYear()} Lumen. {t("rights")}
+        </p>
       </div>
     </footer>
   );
