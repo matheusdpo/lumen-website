@@ -263,3 +263,8 @@ body.dark footer {
     text-align: left;
   }
 }
+
+
+h1, h2, h3, h4, p{
+  font-family: 'futura-pt', sans-serif;
+}
