@@ -4,90 +4,43 @@
   box-sizing: border-box;
 }
 
-body {
+body, html {
+  height: 100%;
   font-family: "Futura PT", Arial, sans-serif;
   background-color: #fff5cc;
   color: #081144;
   transition: background-color 0.3s, color 0.3s;
-  min-height: 100vh;
-  padding-top: 60px;
 }
 
-body.dark {
+body.dark, html.dark {
   background-color: #081144;
   color: #fff5cc;
 }
 
+#root, body, html {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 header.header {
-  position: relative;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  height: 00px;
+  height: 100px; 
   background-color: #fff5cc;
   color: #081144;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 00px;
-  padding: 0 30px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  padding: 0 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
   user-select: none;
-  transition: transform 0.3s ease-in-out, background-color 0.3s, color 0.3s;
-}
-
-header.dark {
-  background-color: #fff5cc;
-  color: #fff5cc;
-}
-
-header.hidden {
-  transform: translateY(-100%);
-}
-
-header.visible {
-  transform: translateY(0);
-}
-
-.header-left {
-  flex: 1;
-}
-
-.logo {
-  height: 48px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
-.header-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.nav-link {
-  font-weight: 700;
-  font-size: 1.25rem;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  background-color: rgba(8, 17, 68, 0.1);
-}
-
-header.dark .nav-link:hover,
-header.dark .nav-link:focus {
-  background-color: rgba(255, 245, 204, 0.2);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .header-right {
@@ -96,12 +49,66 @@ header.dark .nav-link:focus {
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
+  flex-wrap: nowrap; 
+}
+
+body.dark header.header {
+  background-color: #081144;
+  color: #fff5cc;
+}
+
+header.visible {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+header.hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo {
+  padding-left: 0px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: inherit;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+  background-color: rgba(8, 17, 68, 0.1);
+  outline: none;
+}
+
+body.dark .nav-link:hover,
+body.dark .nav-link:focus {
+  background-color: rgba(255, 245, 204, 0.2);
 }
 
 .lang-select {
   background-color: transparent;
   border: 2px solid currentColor;
-  border-radius: 6px;
+  border-radius: 6px;.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
   padding: 6px 12px;
   font-size: 1rem;
   color: inherit;
@@ -109,14 +116,13 @@ header.dark .nav-link:focus {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.lang-select:hover,
-.lang-select:focus {
+.lang-select:hover, .lang-select:focus {
   background-color: rgba(8, 17, 68, 0.1);
   outline: none;
 }
 
-header.dark .lang-select:hover,
-header.dark .lang-select:focus {
+body.dark .lang-select:hover,
+body.dark .lang-select:focus {
   background-color: rgba(255, 245, 204, 0.2);
   color: #081144;
 }
@@ -130,8 +136,8 @@ header.dark .lang-select:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s ease, transform 0.2s ease;
   border-radius: 6px;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .dark-toggle-btn:hover,
@@ -142,44 +148,63 @@ header.dark .lang-select:focus {
 }
 
 main {
-  padding: 20px;
-  min-height: 80vh;
+  flex: 1 0 auto;
+  padding: 20px 15px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
   text-align: center;
 }
 
-.home h1 {
-  font-size: 3rem;
+main h1 {
+  font-size: 2.5rem;
+  max-width: 90vw;
+  margin-bottom: 30px;
+}
+
+.logoBody {
+  max-width: 350px;
+  width: 90vw;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logoBody:hover {
+  transform: scale(1.05);
 }
 
 footer {
+  flex-shrink: 0; 
   background-color: #081144;
   color: #fff5cc;
-  padding: 10px;
+  padding: 15px 20px;
   font-size: 0.9rem;
+  text-align: center;
   user-select: none;
   transition: background-color 0.3s, color 0.3s;
 }
 
-footer.dark {
+body.dark footer {
   background-color: #fff5cc;
   color: #081144;
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.footer-left,
-.footer-center,
-.footer-right {
-  flex: 1;
-  min-width: 150px;
+.footer-left, .footer-center, .footer-right {
+  flex: 1 1 200px;
+  text-align: center;
 }
 
 .footer-logo {
@@ -192,41 +217,41 @@ footer.dark {
   transform: scale(1.05);
 }
 
-.footer-center p {
-  margin: 4px 0;
-}
-
 .footer-right a {
-  margin-left: 15px;
+  margin: 0 10px;
   text-decoration: none;
   color: inherit;
   font-weight: 600;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
-.footer-right a:first-child {
-  margin-left: 0;
-}
-
-.footer-right a:hover,
-.footer-right a:focus {
+.footer-right a:hover, .footer-right a:focus {
   color: #ffcc00;
   outline: none;
 }
 
 .footer-bottom {
-  text-align: center;
   margin-top: 15px;
   font-size: 0.85rem;
 }
 
-.logoBody {
-  margin-top: 100px;
-  height: 350px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
+@media (min-width: 768px) {
+  main h1 {
+    font-size: 3rem;
+  }
 
-.logoBody:hover {
-  transform: scale(1.05);
+  .logoBody {
+    max-width: 400px;
+  }
+
+  .footer-content {
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    text-align: left;
+  }
 }
