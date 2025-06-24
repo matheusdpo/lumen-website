@@ -27,111 +27,155 @@ export const translations: Record<string, Record<string, string>> = {
   en: {
     comingSoon: "Coming Soon",
     rights: "All rights reserved.",
-    title: "Home"
+    title: "Home",
+    contact: "Contact",
+    followUs: "Follow us",
   },
   pt: {
     comingSoon: "Em breve",
     rights: "Todos os direitos reservados.",
-    title: "Início"
+    title: "Início",
+    contact: "Contato",
+    followUs: "Siga-nos",
   },
   es: {
     comingSoon: "Próximamente",
     rights: "Todos los derechos reservados.",
-    title: "Inicio"
+    title: "Inicio",
+    contact: "Contacto",
+    followUs: "Síguenos",
   },
   ar: {
     comingSoon: "قريباً",
     rights: "جميع الحقوق محفوظة.",
-    title: "الرئيسية"
+    title: "الرئيسية",
+    contact: "اتصل",
+    followUs: "تابعنا",
   },
   cs: {
     comingSoon: "Již brzy",
     rights: "Všechna práva vyhrazena.",
-    title: "Domů"
+    title: "Domů",
+    contact: "Kontakt",
+    followUs: "Sledujte nás",
   },
   da: {
     comingSoon: "Kommer snart",
     rights: "Alle rettigheder forbeholdes.",
-    title: "Hjem"
+    title: "Hjem",
+    contact: "Kontakt",
+    followUs: "Følg os",
   },
   de: {
     comingSoon: "Kommt bald",
     rights: "Alle Rechte vorbehalten.",
-    title: "Startseite"
+    title: "Startseite",
+    contact: "Kontakt",
+    followUs: "Folge uns",
   },
   et: {
     comingSoon: "Varsti tulekul",
     rights: "Kõik õigused kaitstud.",
-    title: "Avaleht"
+    title: "Avaleht",
+    contact: "Kontakt",
+    followUs: "Jälgi meid",
   },
   fr: {
     comingSoon: "Bientôt disponible",
     rights: "Tous droits réservés.",
-    title: "Accueil"
+    title: "Accueil",
+    contact: "Contact",
+    followUs: "Suivez-nous",
   },
   ge: {
     comingSoon: "მალე",
     rights: "ყველა უფლება დაცულია.",
-    title: "მთავარი"
+    title: "მთავარი",
+    contact: "კონტაქტი",
+    followUs: "გამოგვყევი",
   },
   hi: {
     comingSoon: "जल्द आ रहा है",
     rights: "सर्वाधिकार सुरक्षित।",
-    title: "मुखपृष्ठ"
+    title: "मुखपृष्ठ",
+    contact: "संपर्क करें",
+    followUs: "हमें फॉलो करें",
   },
   hu: {
     comingSoon: "Hamarosan",
     rights: "Minden jog fenntartva.",
-    title: "Kezdőlap"
+    title: "Kezdőlap",
+    contact: "Kapcsolat",
+    followUs: "Kövess minket",
   },
   it: {
     comingSoon: "Prossimamente",
     rights: "Tutti i diritti riservati.",
-    title: "Home"
+    title: "Home",
+    contact: "Contatto",
+    followUs: "Seguici",
   },
   ja: {
     comingSoon: "近日公開",
     rights: "全著作権所有。",
-    title: "ホーム"
+    title: "ホーム",
+    contact: "お問い合わせ",
+    followUs: "フォローする",
   },
   ko: {
     comingSoon: "곧 출시 예정",
     rights: "판권 소유.",
-    title: "홈"
+    title: "홈",
+    contact: "연락처",
+    followUs: "팔로우하기",
   },
   pl: {
     comingSoon: "Wkrótce",
     rights: "Wszelkie prawa zastrzeżone.",
-    title: "Strona główna"
+    title: "Strona główna",
+    contact: "Kontakt",
+    followUs: "Śledź nas",
   },
   ro: {
     comingSoon: "În curând",
     rights: "Toate drepturile rezervate.",
-    title: "Acasă"
+    title: "Acasă",
+    contact: "Contact",
+    followUs: "Urmărește-ne",
   },
   ru: {
     comingSoon: "Скоро будет",
     rights: "Все права защищены.",
-    title: "Главная"
+    title: "Главная",
+    contact: "Контакт",
+    followUs: "Подписывайтесь на нас",
   },
   sv: {
     comingSoon: "Kommer snart",
     rights: "Alla rättigheter förbehållna.",
-    title: "Hem"
+    title: "Hem",
+    contact: "Kontakt",
+    followUs: "Följ oss",
   },
   th: {
     comingSoon: "เร็วๆ นี้",
     rights: "สงวนลิขสิทธิ์.",
-    title: "หน้าหลัก"
+    title: "หน้าหลัก",
+    contact: "ติดต่อ",
+    followUs: "ติดตามเรา",
   },
   uk: {
     comingSoon: "Незабаром",
     rights: "Всі права захищені.",
-    title: "Головна"
+    title: "Головна",
+    contact: "Контакт",
+    followUs: "Слідкуйте за нами",
   },
   zh: {
     comingSoon: "即将推出",
     rights: "版权所有。",
-    title: "首页"
+    title: "首页",
+    contact: "联系",
+    followUs: "关注我们",
   },
 };
