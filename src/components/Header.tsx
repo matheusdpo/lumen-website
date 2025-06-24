@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { LANGUAGES, translations } from "../i18n/translations";
-import logoBlue from "../assets/arc-blue.png";
-import logoYellow from "../assets/arc-yellow.png";
+import logoBlue from "../assets/icon-blue.png";
+import logoYellow from "../assets/icon-yellow.png";
 
 interface HeaderProps {
   lang: string;
