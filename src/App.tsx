@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { translations } from "./i18n/translations";
+import lumenBlue from "./assets/lumen-blue.png";
+import lumenYellow from "./assets/lumen-yellow.png";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [lang, setLang] = useState("pt");
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const t = (key: string) => translations[lang]?.[key] || key;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Header
+        lang={lang}
+        setLang={setLang}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="home">
+                <h1>{t("comingSoon")}</h1>
+                <img
+                  className="logoBody"
+                  src={darkMode ? lumenYellow : lumenBlue}
+                ></img>
+              </div>
+            }
+          />
+        </Routes>
+      </main>
+      <Footer darkMode={darkMode} lang={lang} />
+    </Router>
+  );
 }
-
-export default App
