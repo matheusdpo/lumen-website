@@ -1,6 +1,13 @@
 import { translations } from "../i18n/translations";
 import logoBlue from "../assets/arc-blue.png";
 import logoYellow from "../assets/arc-yellow.png";
+import {
+  Instagram,
+  Youtube,
+  Linkedin,
+  Twitter,
+  Github,
+} from "lucide-react";
 
 interface FooterProps {
   darkMode: boolean;
@@ -15,62 +22,69 @@ export default function Footer({ darkMode, lang }: FooterProps) {
       <div className="footer-content">
         <div className="footer-left">
           <img
-            src={darkMode ? logoYellow : logoBlue}
+            src={darkMode ? logoBlue : logoYellow}
             alt="Logo"
             className="footer-logo"
           />
+          <p className="mt-2">Incline Village, Nevada 89450, USA</p>
+          <p>São Paulo, SP 01310-930, BR</p>
         </div>
+
         <div className="footer-center">
-          <p>Taubaté, São Paulo, Brasil</p>
-          <p>Telefone: +55 12 98141-3700</p>
+          <h4 style={{ fontWeight: 700, marginBottom: "8px" }}>{t("contact")}</h4>
+          <p>+1 (775) 555-1234</p>
+          <p>+55 12 98141-3700</p>
         </div>
+
         <div className="footer-right">
-          <a
-            href="https://instagram.com/seuperfil"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-          >
-            Instagram
-          </a>
-          <a
-            href="https://youtube.com/seucanal"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="YouTube"
-          >
-            YouTube
-          </a>
-          <a
-            href="https://linkedin.com/in/seuperfil"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://twitter.com/seuperfil"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="X (Twitter)"
-          >
-            X
-          </a>
-          <a
-            href="https://github.com/seuperfil"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-          >
-            GitHub
-          </a>
+          <h4 style={{ fontWeight: 700, marginBottom: "8px" }}>{t("followUs")}</h4>
+          <div className="flex justify-center md:justify-start gap-3 flex-wrap">
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href="https://youtube.com/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-5 h-5" />
+            </a>
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="X (Twitter)"
+            >
+              <Twitter className="w-5 h-5" />
+            </a>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </div>
+
       <div className="footer-bottom">
-        <p>
-          © {new Date().getFullYear()} Lumen. {t("rights")}
-        </p>
+        <p>© {new Date().getFullYear()} Lumen. {t("rights")}</p>
       </div>
     </footer>
   );
