@@ -12,12 +12,7 @@ interface HeaderProps {
   setDarkMode: (dark: boolean) => void;
 }
 
-export default function Header({
-  lang,
-  setLang,
-  darkMode,
-  setDarkMode,
-}: HeaderProps) {
+export default function Header({ lang, setLang, darkMode, setDarkMode }: HeaderProps) {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -40,16 +35,10 @@ export default function Header({
 
   return (
     <header
-      className={`header ${darkMode ? "dark" : ""} ${
-        showHeader ? "visible" : "hidden"
-      }`}
+      className={`header ${darkMode ? "dark" : ""} ${showHeader ? "visible" : "hidden"}`}
     >
       <div className="header-left">
-        <img
-          src={darkMode ? logoYellow : logoBlue}
-          alt="Logo"
-          className="logo"
-        />
+        <img src={darkMode ? logoYellow : logoBlue} alt="Logo" className="logo" />
       </div>
       <nav className="header-center">
         <Link to="/" className="nav-link">
