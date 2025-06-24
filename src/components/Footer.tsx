@@ -1,6 +1,6 @@
 import { translations } from "../i18n/translations";
-import logoBlue from "../assets/arc-blue.png";
-import logoYellow from "../assets/arc-yellow.png";
+import logoBlue from "../assets/images/arc-blue.png";
+import logoYellow from "../assets/images/arc-yellow.png";
 import {
   Instagram,
   Youtube,
@@ -27,13 +27,13 @@ export default function Footer({ darkMode, lang }: FooterProps) {
             className="footer-logo"
           />
           <p className="mt-2">Incline Village, Nevada 89450, USA</p>
-          <p>São Paulo, SP 01310-930, BR</p>
+          <p className="mt-2">São Paulo, SP 01310-930, BR</p>
         </div>
 
         <div className="footer-center">
           <h4 style={{ fontWeight: 700, marginBottom: "8px" }}>{t("contact")}</h4>
           <p>+1 (775) 555-1234</p>
-          <p>+55 12 98141-3700</p>
+          <p>email@mail.com</p>
         </div>
 
         <div className="footer-right">
