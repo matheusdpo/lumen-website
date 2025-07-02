@@ -63,6 +63,8 @@ header.header {
 body.dark header.header {
   background-color: #081144;
   color: #fff5cc;
+    box-shadow: 0 2px 6px #fff5cc10;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 header.visible {
