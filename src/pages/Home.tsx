@@ -129,6 +129,18 @@ export default function Home({ lang }: HomeProps) {
               <Settings className="w-6 h-6" />
               <span>Integration</span>
             </div>
+            <div className="floating-card card-4">
+              <Settings className="w-6 h-6" />
+              <span>Integration</span>
+            </div>
+            <div className="floating-card card-5">
+              <Settings className="w-6 h-6" />
+              <span>Integration</span>
+            </div>
+            <div className="floating-card card-6">
+              <Settings className="w-6 h-6" />
+              <span>Integration</span>
+            </div>
           </div>
         </div>
       </section>

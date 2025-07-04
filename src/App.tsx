@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import OurServices from "./pages/OurServices";
 import AboutUs from "./pages/AboutUs";
-import JoinUs from "./pages/JoinUs";
 import Contacts from "./pages/Contacts";
 
 export default function App() {
@@ -46,10 +45,6 @@ export default function App() {
           <Route
             path="/about-us"
             element={<AboutUs lang={lang} darkMode={darkMode} />}
-          />
-          <Route
-            path="/join-us"
-            element={<JoinUs lang={lang} darkMode={darkMode} />}
           />
           <Route
             path="/contacts"

@@ -361,7 +361,24 @@ main {
 }
 
 .floating-card.card-3 {
+  bottom: 70%;
+  left: 100%;
+  animation-delay: 4s;
+}
+
+.floating-card.card-4 {
+  bottom: 50%;
+  left: 60%;
+  animation-delay: 4s;
+}
+
+.floating-card.card-5 {
   bottom: 20%;
+  left: 90%;
+  animation-delay: 4s;
+}
+.floating-card.card-6 {
+  bottom: 0%;
   left: 30%;
   animation-delay: 4s;
 }
