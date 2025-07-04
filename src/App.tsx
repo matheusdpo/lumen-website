@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import OurServices from "./pages/OurServices";
 import AboutUs from "./pages/AboutUs";
 import JoinUs from "./pages/JoinUs";
-import PartnerWithUs from "./pages/PartnerWithUs";
 import Contacts from "./pages/Contacts";
 
 export default function App() {
@@ -51,10 +50,6 @@ export default function App() {
           <Route
             path="/join-us"
             element={<JoinUs lang={lang} darkMode={darkMode} />}
-          />
-          <Route
-            path="/partner-with-us"
-            element={<PartnerWithUs lang={lang} darkMode={darkMode} />}
           />
           <Route
             path="/contacts"

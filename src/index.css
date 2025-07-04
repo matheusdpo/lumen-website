@@ -1351,6 +1351,22 @@ body.dark .services-page .benefits-section .benefits-grid .benefit-card p.benefi
   line-height: 1.7;
 }
 
+.about-hero-description {
+  color: var(--primary-yellow) !important;
+}
+
+body.dark .about-hero-description {
+  color: var(--primary-yellow) !important;
+}
+
+.about-hero-yellow {
+  color: var(--primary-yellow) !important;
+}
+
+body.dark .about-hero-yellow {
+  color: var(--primary-yellow) !important;
+}
+
 .stats-section {
   padding: 4rem 0;
   background: var(--white);

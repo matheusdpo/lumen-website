@@ -63,10 +63,6 @@ export default function Contacts({ }: ContactsProps) {
             <p className="hero-subtitle">
               Ready to start your digital transformation journey?
             </p>
-            <p className="hero-description">
-              We're here to help you with all your technology needs. Reach out to us through 
-              any of the following channels and let's discuss how we can help your business grow.
-            </p>
           </div>
         </div>
       </section>
@@ -85,7 +81,7 @@ export default function Contacts({ }: ContactsProps) {
               <div key={index} className="contact-info-card">
                 <div className="contact-info-icon">{info.icon}</div>
                 <h3 className="contact-info-title">{info.title}</h3>
-                <p className="contact-info-value">{info.value}</p>
+                <p className="contact-info-description">{info.value}</p>
                 <p className="contact-info-description">{info.description}</p>
               </div>
             ))}
@@ -166,17 +162,14 @@ export default function Contacts({ }: ContactsProps) {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="service" className="form-label">Service Interest</label>
-                  <select id="service" name="service" className="form-select">
-                    <option value="">Select a service</option>
-                    <option value="custom-development">Custom Development</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="mobile-development">Mobile Development</option>
-                    <option value="cloud-solutions">Cloud Solutions</option>
-                    <option value="ai-ml">AI & Machine Learning</option>
-                    <option value="consulting">Technology Consulting</option>
-                    <option value="other">Other</option>
-                  </select>
+                <label htmlFor="title" className="form-label">Title</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    className="form-input"
+                    placeholder="Insert your title"
+                  />
                 </div>
                 
                 <div className="form-group">

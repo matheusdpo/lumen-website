@@ -15,7 +15,7 @@ interface AboutUsProps {
   darkMode: boolean;
 }
 
-export default function AboutUs({ }: AboutUsProps) {
+export default function AboutUs({ darkMode }: AboutUsProps) {
   // const t = (key: string) => translations[lang]?.[key] || key;
 
   const stats = [
@@ -94,11 +94,6 @@ export default function AboutUs({ }: AboutUsProps) {
             <h1 className="hero-title">About Lumen</h1>
             <p className="hero-subtitle">
               Your trusted technology partner for over 5 years
-            </p>
-            <p className="hero-description">
-              We are a software development company committed to delivering innovative solutions 
-              that drive business growth and efficiency. With years of experience across multiple 
-              industries, we understand the unique challenges each sector faces.
             </p>
           </div>
         </div>
@@ -187,29 +182,6 @@ export default function AboutUs({ }: AboutUsProps) {
                 </div>
                 <h3 className="value-title">{value.title}</h3>
                 <p className="value-description">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="timeline-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Our Journey</h2>
-            <p className="section-subtitle">
-              Key milestones in our company's growth
-            </p>
-          </div>
-          <div className="timeline">
-            {timeline.map((item, index) => (
-              <div key={index} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
-                <div className="timeline-content">
-                  <div className="timeline-year">{item.year}</div>
-                  <h3 className="timeline-title">{item.title}</h3>
-                  <p className="timeline-description">{item.description}</p>
-                </div>
               </div>
             ))}
           </div>

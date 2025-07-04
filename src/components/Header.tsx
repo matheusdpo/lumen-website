@@ -42,9 +42,7 @@ export default function Header({
   const navLinks = [
     { to: "/", key: "home" },
     { to: "/our-services", key: "ourServices" },
-    { to: "/partner-with-us", key: "partnerWithUs" },
     { to: "/about-us", key: "aboutUs" },
-    { to: "/join-us", key: "joinUs" },
     { to: "/contacts", key: "contacts" },
   ];
 

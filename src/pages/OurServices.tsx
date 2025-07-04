@@ -25,7 +25,7 @@ export default function OurServices({ lang, darkMode }: OurServicesProps) {
   const t = (key: string) => translations[lang]?.[key] || key;
   
   // Função para obter a cor correta baseada no modo
-  const getTextColor = () => darkMode ? 'white' : 'var(--primary-blue)';
+  const getTextColor = () => darkMode ? '#fff5cc' : '#081144';
 
   const services = [
     {
@@ -130,33 +130,6 @@ export default function OurServices({ lang, darkMode }: OurServicesProps) {
                   Learn More
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="benefits-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title" style={{ color: getTextColor(), textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
-              Why Choose Our Services?
-            </h2>
-            <p className="section-subtitle" style={{ color: getTextColor(), textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
-              We deliver exceptional value through our proven approach and expertise
-            </p>
-          </div>
-          <div className="benefits-grid">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="benefit-card">
-                <div className="benefit-icon">{benefit.icon}</div>
-                <h3 className="benefit-title" style={{ color: getTextColor(), textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
-                  {benefit.title}
-                </h3>
-                <p className="benefit-description" style={{ color: getTextColor(), textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
-                  {benefit.description}
-                </p>
               </div>
             ))}
           </div>
