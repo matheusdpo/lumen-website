@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { translations } from "./i18n/translations";
-import lumenBlue from "./assets/images/lumen-blue.png";
-import lumenYellow from "./assets/images/lumen-yellow.png";
+import Home from "./pages/Home";
+import OurServices from "./pages/OurServices";
+import AboutUs from "./pages/AboutUs";
+import JoinUs from "./pages/JoinUs";
+import PartnerWithUs from "./pages/PartnerWithUs";
+import Contacts from "./pages/Contacts";
 
 export default function App() {
   const [lang, setLang] = useState("pt");
@@ -23,8 +26,6 @@ export default function App() {
     document.head.appendChild(fontLink);
   }, [darkMode]);
 
-  const t = (key: string) => translations[lang]?.[key] || key;
-
   return (
     <Router>
       <Header
@@ -37,15 +38,27 @@ export default function App() {
         <Routes>
           <Route
             path="/"
-            element={
-              <div className="home">
-                <h1>{t("comingSoon")}</h1>
-                <img
-                  className="logoBody"
-                  src={darkMode ? lumenYellow : lumenBlue}
-                ></img>
-              </div>
-            }
+            element={<Home lang={lang} darkMode={darkMode} />}
+          />
+          <Route
+            path="/our-services"
+            element={<OurServices lang={lang} darkMode={darkMode} />}
+          />
+          <Route
+            path="/about-us"
+            element={<AboutUs lang={lang} darkMode={darkMode} />}
+          />
+          <Route
+            path="/join-us"
+            element={<JoinUs lang={lang} darkMode={darkMode} />}
+          />
+          <Route
+            path="/partner-with-us"
+            element={<PartnerWithUs lang={lang} darkMode={darkMode} />}
+          />
+          <Route
+            path="/contacts"
+            element={<Contacts lang={lang} darkMode={darkMode} />}
           />
         </Routes>
       </main>

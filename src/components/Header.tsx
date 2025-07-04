@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom"; // Importar NavLink e Link
 import { Sun, Moon } from "lucide-react";
 import { LANGUAGES, translations } from "../i18n/translations";
 import logoBlue from "../assets/images/icon-blue.png";
@@ -36,7 +36,17 @@ export default function Header({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const title = (key: string) => translations[lang]?.[key] || key;
+  const t = (key: string) => translations[lang]?.[key] || key;
+
+  // Lista de links de navegação
+  const navLinks = [
+    { to: "/", key: "home" },
+    { to: "/our-services", key: "ourServices" },
+    { to: "/partner-with-us", key: "partnerWithUs" },
+    { to: "/about-us", key: "aboutUs" },
+    { to: "/join-us", key: "joinUs" },
+    { to: "/contacts", key: "contacts" },
+  ];
 
   return (
     <header
@@ -44,39 +54,43 @@ export default function Header({
         showHeader ? "visible" : "hidden"
       }`}
     >
-      <div className="header-left">
-        <img
-          src={darkMode ? logoYellow : logoBlue}
-          alt="Logo"
-          className="logo"
-        />
-      </div>
-      <nav className="header-center">
-        <Link to="/" style={{ fontFamily: "futura-pt, sans-serif" }} className="nav-link">
-          {title("title")}
+      <div className="header-content">
+        <Link to="/">
+          <img
+            src={darkMode ? logoYellow : logoBlue}
+            alt="Logo"
+            className="logo"
+          />
         </Link>
-      </nav>
-      <div className="header-right">
-        <select
-          value={lang}
-          onChange={(e) => setLang(e.target.value)}
-          className="lang-select"
-          aria-label="Selecione o idioma"
-        >
-          {LANGUAGES.map(({ code, label }) => (
-            <option key={code} value={code}>
-              {label}
-            </option>
+        <nav className="nav">
+          {navLinks.map((link) => (
+            <NavLink key={link.key} to={link.to} className="nav-link">
+              {t(link.key)}
+            </NavLink>
           ))}
-        </select>
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}
-          className="dark-toggle-btn"
-          type="button"
-        >
-          {darkMode ? <Sun size={24} /> : <Moon size={24} />}
-        </button>
+        </nav>
+        <div className="header-controls">
+          <select
+            value={lang}
+            onChange={(e) => setLang(e.target.value)}
+            className="lang-select"
+            aria-label="Selecione o idioma"
+          >
+            {LANGUAGES.map(({ code, label }) => (
+              <option key={code} value={code}>
+                {label}
+              </option>
+            ))}
+          </select>
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}
+            className="dark-toggle-btn"
+            type="button"
+          >
+            {darkMode ? <Sun size={24} /> : <Moon size={24} />}
+          </button>
+        </div>
       </div>
     </header>
   );

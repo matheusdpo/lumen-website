@@ -18,27 +18,27 @@ export default function Footer({ darkMode, lang }: FooterProps) {
   const t = (key: string) => translations[lang]?.[key] || key;
 
   return (
-    <footer className={darkMode ? "dark" : ""}>
+    <footer className="footer">
       <div className="footer-content">
         <div className="footer-left">
           <img
-            src={darkMode ? logoBlue : logoYellow}
+            src={darkMode ? logoYellow : logoBlue}
             alt="Logo"
             className="footer-logo"
           />
-          <p className="mt-2">Incline Village, Nevada 89450, USA</p>
-          <p className="mt-2">São Paulo, SP 01310-930, BR</p>
+          <p>Incline Village, Nevada 89450, USA</p>
+          <p>São Paulo, SP 01310-930, BR</p>
         </div>
 
         <div className="footer-center">
-          <h4 style={{ fontWeight: 700, marginBottom: "8px" }}>{t("contact")}</h4>
+          <h4>{t("contact")}</h4>
           <p>+1 (775) 555-1234</p>
           <p>email@mail.com</p>
         </div>
 
         <div className="footer-right">
-          <h4 style={{ fontWeight: 700, marginBottom: "8px" }}>{t("followUs")}</h4>
-          <div className="flex justify-center md:justify-start gap-3 flex-wrap">
+          <h4>{t("followUs")}</h4>
+          <div className="social-links">
             <a
               href="https://instagram.com/"
               target="_blank"
