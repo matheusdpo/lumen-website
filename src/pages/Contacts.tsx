@@ -1,3 +1,4 @@
+import { useState, FormEvent } from "react";
 import { 
   MapPin, 
   Phone, 
@@ -6,7 +7,8 @@ import {
   Send,
   CheckCircle,
   Globe,
-  Share2
+  Share2,
+  Loader2
 } from "lucide-react";
 import { translations } from "../i18n/translations";
 
@@ -15,8 +17,19 @@ interface ContactsProps {
   darkMode: boolean;
 }
 
+interface FormData {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  title: string;
+  message: string;
+}
+
 export default function Contacts({ lang, darkMode }: ContactsProps) {
   const t = (key: string) => translations[lang]?.[key] || key;
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
 
   const contactInfo = [
     {
@@ -47,6 +60,54 @@ export default function Contacts({ lang, darkMode }: ContactsProps) {
     t("feature5"),
     t("feature6")
   ];
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    const form = e.currentTarget;
+    const formData: FormData = {
+      name: (form.querySelector('[name="name"]') as HTMLInputElement).value,
+      email: (form.querySelector('[name="email"]') as HTMLInputElement).value,
+      company: (form.querySelector('[name="company"]') as HTMLInputElement).value || '',
+      phone: (form.querySelector('[name="phone"]') as HTMLInputElement).value || '',
+      title: (form.querySelector('[name="title"]') as HTMLInputElement).value || '',
+      message: (form.querySelector('[name="message"]') as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus({ 
+          type: 'success', 
+          message: t("messageSentSuccess") || "Message sent successfully!" 
+        });
+        form.reset();
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        setSubmitStatus({ 
+          type: 'error', 
+          message: errorData.message || t("messageSentError") || "Failed to send message. Please try again." 
+        });
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setSubmitStatus({ 
+        type: 'error', 
+        message: t("messageSentError") || "Failed to send message. Please try again." 
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="contacts-page">
@@ -108,7 +169,7 @@ export default function Contacts({ lang, darkMode }: ContactsProps) {
             </div>
             
             <div className="contact-form-container">
-              <form className="contact-form">
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name" className="form-label">{t("name")} *</label>
                   <input
@@ -178,9 +239,28 @@ export default function Contacts({ lang, darkMode }: ContactsProps) {
                   ></textarea>
                 </div>
                 
-                <button type="submit" className="submit-btn">
-                  <Send className="w-4 h-4 mr-2" />
-                  {t("sendMessage")}
+                {submitStatus.type && (
+                  <div className={`form-message ${submitStatus.type === 'success' ? 'form-message-success' : 'form-message-error'}`}>
+                    {submitStatus.message}
+                  </div>
+                )}
+                
+                <button 
+                  type="submit" 
+                  className="submit-btn"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      {t("sending") || "Sending..."}
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 mr-2" />
+                      {t("sendMessage")}
+                    </>
+                  )}
                 </button>
               </form>
             </div>
