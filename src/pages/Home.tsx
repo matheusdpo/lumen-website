@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { translations } from "../i18n/translations";
-import { 
-  Code, 
-  Globe, 
-  Smartphone, 
-  Settings, 
-  Users, 
+import {
+  Code,
+  Globe,
+  Smartphone,
+  Settings,
+  Users,
   Wrench,
   Factory,
   Scale,
@@ -14,7 +14,7 @@ import {
   ShoppingCart,
   GraduationCap,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
 } from "lucide-react";
 
 interface HomeProps {
@@ -91,12 +91,20 @@ export default function Home({ lang }: HomeProps) {
     },
   ];
 
-  const stats = [
-    { number: "5+", label: t("aboutStats") },
-    { number: "50+", label: t("aboutProjects") },
-    { number: "30+", label: t("aboutClients") },
-    { number: "15+", label: t("aboutTeam") },
+  const clients = [
+    { name: "Empresa A", logo: "/src/assets/logos/logo1.png" }, // Caminho da sua imagem
+    { name: "Empresa B", logo: "/src/assets/logos/logo1.png" },
+    { name: "Empresa C", logo: "/src/assets/logos/logo1.png" },
+    { name: "Empresa D", logo: "/src/assets/logos/logo1.png" },
+    { name: "Empresa E", logo: "/src/assets/logos/logo1.png" },
   ];
+
+  // const stats = [
+  //   { number: "1+", label: t("aboutStats") },
+  //   { number: "5+", label: t("aboutProjects") },
+  //   { number: "10+", label: t("aboutClients") },
+  //   { number: "15+", label: t("aboutTeam") },
+  // ];
 
   return (
     <div className="home-page">
@@ -119,11 +127,11 @@ export default function Home({ lang }: HomeProps) {
           <div className="hero-graphic">
             <div className="floating-card card-1">
               <Code className="w-6 h-6" />
-              <span>Web Apps</span>
+              <span>Websites</span>
             </div>
             <div className="floating-card card-2">
               <Smartphone className="w-6 h-6" />
-              <span>Mobile</span>
+              <span>Mobile Apps</span>
             </div>
             <div className="floating-card card-3">
               <Settings className="w-6 h-6" />
@@ -131,15 +139,19 @@ export default function Home({ lang }: HomeProps) {
             </div>
             <div className="floating-card card-4">
               <Settings className="w-6 h-6" />
-              <span>Integration</span>
+              <span>WebService</span>
             </div>
             <div className="floating-card card-5">
               <Settings className="w-6 h-6" />
-              <span>Integration</span>
+              <span>IA</span>
             </div>
             <div className="floating-card card-6">
               <Settings className="w-6 h-6" />
-              <span>Integration</span>
+              <span>SaaS</span>
+            </div>
+            <div className="floating-card card-7">
+              <Settings className="w-6 h-6" />
+              <span>API</span>
             </div>
           </div>
         </div>
@@ -164,25 +176,6 @@ export default function Home({ lang }: HomeProps) {
         </div>
       </section>
 
-      {/* Industries Section */}
-      <section className="industries-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">{t("industriesTitle")}</h2>
-            <p className="section-subtitle">{t("industriesSubtitle")}</p>
-          </div>
-          <div className="industries-grid">
-            {industries.map((industry, index) => (
-              <div key={index} className="industry-card">
-                <div className="industry-icon">{industry.icon}</div>
-                <h3 className="industry-title">{industry.title}</h3>
-                <p className="industry-description">{industry.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
       <section className="about-section">
         <div className="container">
@@ -194,26 +187,35 @@ export default function Home({ lang }: HomeProps) {
               <div className="about-features">
                 <div className="feature">
                   <CheckCircle className="w-5 h-5 text-yellow-400" />
-                  <span>Innovation-driven approach</span>
+                  <span>{t("qualityOne")}</span>
                 </div>
                 <div className="feature">
                   <CheckCircle className="w-5 h-5 text-yellow-400" />
-                  <span>Industry expertise</span>
+                  <span>{t("qualityTwo")}</span>
                 </div>
                 <div className="feature">
                   <CheckCircle className="w-5 h-5 text-yellow-400" />
-                  <span>Quality assurance</span>
+                  <span>{t("qualityThree")}</span>
                 </div>
               </div>
             </div>
-            <div className="about-stats">
+
+            <div className="about-image">
+              <img
+                src="/src/assets/images/lumen-yellow.png"
+                alt="About Us"
+                className="footer-home"
+              />
+            </div>
+
+            {/* <div className="about-stats">
               {stats.map((stat, index) => (
                 <div key={index} className="stat-item">
                   <div className="stat-number">{stat.number}</div>
                   <div className="stat-label">{stat.label}</div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

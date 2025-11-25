@@ -26,14 +26,13 @@ export default function Footer({ darkMode, lang }: FooterProps) {
             alt="Logo"
             className="footer-logo"
           />
-          <p>Incline Village, Nevada 89450, USA</p>
-          <p>São Paulo, SP 01310-930, BR</p>
+          <p>São Paulo, SP, Brasil</p>
         </div>
 
         <div className="footer-center">
           <h4>{t("contact")}</h4>
-          <p>+1 (775) 555-1234</p>
-          <p>email@mail.com</p>
+          <p>+55 (12) 98141-3700</p>
+          <p>Send us a message</p>
         </div>
 
         <div className="footer-right">

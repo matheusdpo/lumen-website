@@ -1,56 +1,51 @@
-
 import { 
   MapPin, 
   Phone, 
   Mail, 
   Clock, 
   Send,
-  ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Globe,
+  Share2
 } from "lucide-react";
+import { translations } from "../i18n/translations";
 
 interface ContactsProps {
   lang: string;
   darkMode: boolean;
 }
 
-export default function Contacts({ }: ContactsProps) {
-  // const t = (key: string) => translations[lang]?.[key] || key;
+export default function Contacts({ lang, darkMode }: ContactsProps) {
+  const t = (key: string) => translations[lang]?.[key] || key;
 
   const contactInfo = [
     {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Address",
-      value: "123 Technology Street, Innovation District, 12345",
-      description: "Visit our office for a face-to-face meeting"
-    },
-    {
       icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      description: "Call us during business hours"
+      title: t("phone"),
+      value: t("phoneValue"),
+      description: t("phoneDesc")
     },
     {
       icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      value: "contact@lumen.com",
-      description: "Send us an email anytime"
+      title: t("email"),
+      value: t("emailValue"),
+      description: t("emailDesc")
     },
     {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Business Hours",
-      value: "Monday - Friday: 9:00 AM - 6:00 PM",
-      description: "We're here to help during these hours"
+      icon: <Share2 className="w-6 h-6" />,
+      title: t("socialMedia"),
+      value: t("socialMediaValue"),
+      description: t("socialMediaDesc")
     }
   ];
 
   const features = [
-    "24/7 Technical Support",
-    "Free Consultation",
-    "Quick Response Time",
-    "Multilingual Support",
-    "Secure Communication",
-    "Project Tracking"
+    t("feature1"),
+    t("feature2"),
+    t("feature3"),
+    t("feature4"),
+    t("feature5"),
+    t("feature6")
   ];
 
   return (
@@ -59,9 +54,9 @@ export default function Contacts({ }: ContactsProps) {
       <section className="hero-section">
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title">Get in Touch</h1>
+            <h1 className="hero-title">{t("contactHeroTitle")}</h1>
             <p className="hero-subtitle">
-              Ready to start your digital transformation journey?
+              {t("contactHeroSubtitle")}
             </p>
           </div>
         </div>
@@ -71,9 +66,9 @@ export default function Contacts({ }: ContactsProps) {
       <section className="contact-info-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Contact Information</h2>
+            <h2 className="section-title">{t("contactInfoTitle")}</h2>
             <p className="section-subtitle">
-              We're here to help you with all your technology needs. Reach out to us through any of the following channels.
+              {t("contactInfoDesc")}
             </p>
           </div>
           <div className="contact-info-grid">
@@ -94,14 +89,13 @@ export default function Contacts({ }: ContactsProps) {
         <div className="container">
           <div className="contact-form-content">
             <div className="contact-form-info">
-              <h2 className="contact-form-title">Send us a Message</h2>
+              <h2 className="contact-form-title">{t("contactFormTitle")}</h2>
               <p className="contact-form-description">
-                Have a project in mind? Want to learn more about our services? 
-                Fill out the form below and we'll get back to you within 24 hours.
+                {t("contactFormDescription")}
               </p>
               
               <div className="contact-features">
-                <h3 className="contact-features-title">Why Choose Us?</h3>
+                <h3 className="contact-features-title">{t("whyChooseUs")}</h3>
                 <ul className="contact-features-list">
                   {features.map((feature, index) => (
                     <li key={index} className="contact-feature-item">
@@ -116,77 +110,77 @@ export default function Contacts({ }: ContactsProps) {
             <div className="contact-form-container">
               <form className="contact-form">
                 <div className="form-group">
-                  <label htmlFor="name" className="form-label">Name *</label>
+                  <label htmlFor="name" className="form-label">{t("name")} *</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     className="form-input"
-                    placeholder="Your full name"
+                    placeholder={t("name")}
                     required
                   />
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="email" className="form-label">Email *</label>
+                  <label htmlFor="email" className="form-label">{t("email")} *</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     className="form-input"
-                    placeholder="your.email@example.com"
+                    placeholder={t("emailValue")}
                     required
                   />
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="company" className="form-label">Company</label>
+                  <label htmlFor="company" className="form-label">{t("company")}</label>
                   <input
                     type="text"
                     id="company"
                     name="company"
                     className="form-input"
-                    placeholder="Your company name"
+                    placeholder={t("company")}
                   />
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="phone" className="form-label">Phone</label>
+                  <label htmlFor="phone" className="form-label">{t("phoneField")}</label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     className="form-input"
-                    placeholder="Your phone number"
+                    placeholder={"+1 (00) 00000-0000"}
                   />
                 </div>
                 
                 <div className="form-group">
-                <label htmlFor="title" className="form-label">Title</label>
+                  <label htmlFor="title" className="form-label">{t("titleField")}</label>
                   <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
+                    type="text"
+                    id="title"
+                    name="title"
                     className="form-input"
-                    placeholder="Insert your title"
+                    placeholder={t("titleField")}
                   />
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="message" className="form-label">Message *</label>
+                  <label htmlFor="message" className="form-label">{t("message")} *</label>
                   <textarea
                     id="message"
                     name="message"
                     className="form-textarea"
                     rows={5}
-                    placeholder="Tell us about your project or how we can help you..."
+                    placeholder={t("message")}
                     required
                   ></textarea>
                 </div>
                 
                 <button type="submit" className="submit-btn">
                   <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                  {t("sendMessage")}
                 </button>
               </form>
             </div>
@@ -194,45 +188,6 @@ export default function Contacts({ }: ContactsProps) {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="map-section">
-        <div className="container">
-          <div className="map-content">
-            <h2 className="map-title">Find Us</h2>
-            <p className="map-description">
-              Visit our office for a face-to-face meeting or consultation
-            </p>
-            <div className="map-placeholder">
-              <div className="map-icon">
-                <MapPin className="w-12 h-12" />
-              </div>
-              <p>Interactive Map Coming Soon</p>
-              <p className="map-address">123 Technology Street, Innovation District, 12345</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="container">
-          <div className="cta-content">
-            <h2 className="cta-title">Ready to Get Started?</h2>
-            <p className="cta-description">
-              Let's discuss your project and see how we can help you achieve your goals.
-            </p>
-            <div className="cta-buttons">
-              <button className="btn-primary">
-                Schedule a Call
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
-              <button className="btn-secondary">
-                Download Brochure
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 } 

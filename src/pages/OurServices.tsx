@@ -1,5 +1,3 @@
-// Exemplo para OurServices.tsx. Crie arquivos similares para as outras páginas.
-
 import { 
   Code, 
   Globe, 
@@ -8,13 +6,38 @@ import {
   Brain, 
   Users,
   ArrowRight,
-  CheckCircle,
-  Zap,
-  Shield,
-  TrendingUp,
-  Clock
+  CheckCircle
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { translations } from "../i18n/translations";
+import javaLogo from "../assets/Tecnologia/java.png";
+import springBootLogo from "../assets/Tecnologia/speing-boot.png";
+import awsLogo from "../assets/Tecnologia/aws.png";
+import dockerLogo from "../assets/Tecnologia/docker.png";
+import golangLogo from "../assets/Tecnologia/golang.png";
+import kubernetesLogo from "../assets/Tecnologia/Kubernetes-Logo.png";
+import linuxLogo from "../assets/Tecnologia/linux.png";
+import mongodbLogo from "../assets/Tecnologia/mongodb.png";
+import postgresqlLogo from "../assets/Tecnologia/postgresql.png";
+import rabbitmqLogo from "../assets/Tecnologia/rabbitmq.png";
+import reactLogo from "../assets/Tecnologia/react.png";
+import flutterLogo from "../assets/Tecnologia/flutterlogo.png";
+
+// Array to store technology logos
+const technologyLogos: string[] = [
+  javaLogo,
+  flutterLogo,
+  golangLogo,
+  reactLogo,
+  springBootLogo,
+  awsLogo,
+  dockerLogo,
+  kubernetesLogo,
+  linuxLogo,
+  mongodbLogo,
+  postgresqlLogo,
+  rabbitmqLogo,
+];
 
 interface OurServicesProps {
   lang: string;
@@ -27,67 +50,80 @@ export default function OurServices({ lang, darkMode }: OurServicesProps) {
   // Função para obter a cor correta baseada no modo
   const getTextColor = () => darkMode ? '#fff5cc' : '#081144';
 
+  // Duplicate technology logos for infinite scroll
+  const duplicatedTechLogos = technologyLogos.length > 0 
+    ? [...technologyLogos, ...technologyLogos] 
+    : [];
+
   const services = [
     {
       icon: <Code className="w-8 h-8" />,
       title: t("customSoftwareTitle"),
       description: t("customSoftwareDesc"),
-      features: ["Tailored to your needs", "Scalable architecture", "Security-first approach", "24/7 support"],
+      features: [
+        t("customSoftwareFeature1"),
+        t("customSoftwareFeature2"),
+        t("customSoftwareFeature3"),
+        t("customSoftwareFeature4")
+      ],
     },
     {
       icon: <Globe className="w-8 h-8" />,
       title: t("webDevTitle"),
       description: t("webDevDesc"),
-      features: ["Responsive design", "Modern frameworks", "SEO optimized", "Performance focused"],
+      features: [
+        t("webDevFeature1"),
+        t("webDevFeature2"),
+        t("webDevFeature3"),
+        t("webDevFeature4")
+      ],
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
       title: t("mobileDevTitle"),
       description: t("mobileDevDesc"),
-      features: ["Native & cross-platform", "App Store optimization", "Push notifications", "Offline capabilities"],
+      features: [
+        t("mobileDevFeature1"),
+        t("mobileDevFeature2"),
+        t("mobileDevFeature3"),
+        t("mobileDevFeature4")
+      ],
     },
     {
       icon: <Cloud className="w-8 h-8" />,
       title: t("cloudTitle"),
       description: t("cloudDesc"),
-      features: ["AWS/Azure/GCP", "Migration services", "Auto-scaling", "Cost optimization"],
+      features: [
+        t("cloudFeature1"),
+        t("cloudFeature2"),
+        t("cloudFeature3"),
+        t("cloudFeature4")
+      ],
     },
     {
       icon: <Brain className="w-8 h-8" />,
       title: t("aiTitle"),
       description: t("aiDesc"),
-      features: ["Predictive analytics", "Process automation", "Natural language processing", "Computer vision"],
+      features: [
+        t("aiFeature1"),
+        t("aiFeature2"),
+        t("aiFeature3"),
+        t("aiFeature4")
+      ],
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: t("consultingTitle"),
       description: t("consultingPageDesc"),
-      features: ["Technology assessment", "Digital strategy", "Architecture planning", "Implementation guidance"],
+      features: [
+        t("consultingFeature1"),
+        t("consultingFeature2"),
+        t("consultingFeature3"),
+        t("consultingFeature4")
+      ],
     }
   ];
 
-  const benefits = [
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Fast Delivery",
-      description: "Agile development methodology ensures quick delivery without compromising quality."
-    },
-    {
-      icon: <Shield className="w-6 h-6" />,
-      title: "Secure & Reliable",
-      description: "Enterprise-grade security measures and robust testing protocols."
-    },
-    {
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: "Scalable Solutions",
-      description: "Built to grow with your business, handling increased load and new features."
-    },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: "24/7 Support",
-      description: "Round-the-clock technical support and maintenance services."
-    }
-  ];
 
   return (
     <div className="services-page">
@@ -100,8 +136,7 @@ export default function OurServices({ lang, darkMode }: OurServicesProps) {
               {t("servicesHeroSubtitle")}
             </p>
             <p className="hero-description">
-              We specialize in creating innovative technology solutions that drive business growth, 
-              improve efficiency, and provide competitive advantages in the digital marketplace.
+              {t("servicesHeroDescription")}
             </p>
           </div>
         </div>
@@ -126,32 +161,49 @@ export default function OurServices({ lang, darkMode }: OurServicesProps) {
                     </li>
                   ))}
                 </ul>
-                <button className="learn-more-btn">
-                  Learn More
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Technologies Carousel Section */}
+      {duplicatedTechLogos.length > 0 && (
+        <section className="technologies-section">
+          <div className="container">
+            <div className="section-header">
+              <h2 className="section-title">{t("technologiesTitle")}</h2>
+            </div>
+            <div className="technologies-carousel-wrapper">
+              <div className="technologies-carousel">
+                {duplicatedTechLogos.map((logo, index) => (
+                  <div key={index} className="technology-logo-item">
+                    <img 
+                      src={logo} 
+                      alt={`Technology ${index + 1}`} 
+                      className="technology-logo-img"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
           <div className="cta-content">
-            <h2 className="cta-title">Ready to Transform Your Business?</h2>
+            <h2 className="cta-title">{t("ctaReadyTitle")}</h2>
             <p className="cta-description">
-              Let's discuss how our services can help you achieve your goals and drive success.
+              {t("ctaReadyDescription")}
             </p>
             <div className="cta-buttons">
-              <button className="btn-primary">
-                Get Started
+              <Link to="/contacts" className="btn-primary">
+                {t("getStarted")}
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
-              <button className="btn-secondary">
-                Schedule a Consultation
-              </button>
+              </Link>
             </div>
           </div>
         </div>
